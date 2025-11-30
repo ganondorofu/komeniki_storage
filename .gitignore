@@ -1,0 +1,19 @@
+# Obsidiosaurus変換用JSONファイル（ルートに生成される）
+allSourceAssetsInfo.json
+allFilesInfo.json
+assetInfo.json
+
+# Node modules
+node_modules/
+
+# Build output
+.docusaurus/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

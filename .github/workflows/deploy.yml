@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Docusaurus Site and Generate Candidate Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.11.0'
+
+      - name: Clear npm cache
+        working-directory: website
+        run: npm cache clean --force
+
+      - name: Remove Docusaurus cache
+        working-directory: website
+        run: rm -rf .docusaurus
+
+      - name: Install dependencies
+        working-directory: website
+        env:
+          SHARP_IGNORE_GLOBAL_LIBVIPS: 1
+        run: npm ci
+
+      - name: Clear Docusaurus cache again
+        working-directory: website
+        run: npm run clear
+
+      - name: Build Docusaurus site
+        working-directory: website
+        run: npm run build
+
+      - name: Generate candidate links
+        working-directory: website
+        run: node generate_candidate_links.mjs
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
