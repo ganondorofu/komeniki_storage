@@ -40,10 +40,6 @@ jobs:
         working-directory: website
         run: npm run build
 
-      - name: Generate candidate links
-        working-directory: website
-        run: node generate_candidate_links.mjs
-
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
