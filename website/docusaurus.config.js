@@ -8,7 +8,7 @@ const config = {
   tagline: '俺の技術ブログ',
   favicon: 'img/favicon.ico',
   url: 'https://ganondorofu.github.io',
-  baseUrl: '/komeniki_storage/',
+  baseUrl: process.env.NODE_ENV === 'production' ? '/komeniki_storage/' : '/',
 
   organizationName: 'ganondorofu',
   projectName: 'komeniki_storage',
@@ -28,13 +28,11 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/ganondorofu/komeniki_storage/edit/main/website/docs/',
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/ganondorofu/komeniki_storage/edit/main/website/blog/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -43,6 +41,16 @@ const config = {
     ],
   ],
   plugins: [
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'stem-new-member-doc',
+          path: 'stem-new-member-doc',
+          routeBasePath: 'stem-new-member-doc',
+          sidebarPath: './sidebars.js',
+          editUrl: 'https://github.com/ganondorofu/komeniki_storage/edit/main/website/',
+        },
+      ],
   ],
 
   themeConfig:
@@ -69,6 +77,11 @@ const config = {
               label: 'Blog', 
               position: 'left'
             },
+            {
+              to: '/stem-new-member-doc/intro',
+              position: 'left',
+              label: 'STEM研究部ドキュメント',
+            },
           {
             href: 'https://github.com/ganondorofu',
             label: 'GitHub',
@@ -93,6 +106,10 @@ const config = {
                 {
                   label: '自己紹介',
                   to: '/docs/intro',
+                },
+                {
+                  label: 'STEM研究部ドキュメント',
+                  to: '/stem-new-member-doc/intro',
                 },
             ],
           },
