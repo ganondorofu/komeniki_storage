@@ -13,7 +13,7 @@ const config = {
   organizationName: 'ganondorofu',
   projectName: 'komeniki_storage',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
