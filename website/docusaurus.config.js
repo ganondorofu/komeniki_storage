@@ -51,6 +51,16 @@ const config = {
           editUrl: 'https://github.com/ganondorofu/komeniki_storage/edit/main/website/',
         },
       ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'jakunen2026-network',
+          path: 'jakunen2026-network',
+          routeBasePath: 'jakunen2026-network',
+          sidebarPath: './sidebars.js',
+          editUrl: 'https://github.com/ganondorofu/komeniki_storage/edit/main/website/',
+        },
+      ],
   ],
 
   themeConfig:
@@ -64,7 +74,7 @@ const config = {
         title: 'komeniki blog',
         logo: {
           alt: 'logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
             {
@@ -81,6 +91,11 @@ const config = {
               to: '/stem-new-member-doc/intro',
               position: 'left',
               label: 'STEM研究部ドキュメント',
+            },
+            {
+              to: '/jakunen2026-network/intro',
+              position: 'left',
+              label: 'ネットワーク練習',
             },
           {
             href: 'https://github.com/ganondorofu',
@@ -110,6 +125,10 @@ const config = {
                 {
                   label: 'STEM研究部ドキュメント',
                   to: '/stem-new-member-doc/intro',
+                },
+                {
+                  label: 'ネットワーク練習',
+                  to: '/jakunen2026-network/intro',
                 },
             ],
           },
