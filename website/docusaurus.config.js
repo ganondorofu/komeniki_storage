@@ -93,7 +93,7 @@ const config = {
               label: 'STEM研究部ドキュメント',
             },
             {
-              to: '/jakunen2026-network/',
+              to: '/jakunen2026-network/intro',
               position: 'left',
               label: 'ネットワーク練習',
             },
@@ -128,7 +128,7 @@ const config = {
                 },
                 {
                   label: 'ネットワーク練習',
-                  to: '/jakunen2026-network/',
+                  to: '/jakunen2026-network/intro',
                 },
             ],
           },
