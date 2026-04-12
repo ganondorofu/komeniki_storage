@@ -8,7 +8,7 @@ const config = {
   tagline: '俺の技術ブログ',
   favicon: 'img/favicon.ico',
   url: 'https://ganondorofu.github.io',
-  baseUrl: process.env.NODE_ENV === 'production' ? '/komeniki_storage/' : '/',
+  baseUrl: '/',
 
   organizationName: 'ganondorofu',
   projectName: 'komeniki_storage',
